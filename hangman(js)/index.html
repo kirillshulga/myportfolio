@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Виселица</title>
+    <link rel="stylesheet" href="css/style.css">
+    <script src="js/jquery-3.2.1.min.js"></script>
+</head>
+<body>    
+    <div id="staging">
+        <div class="elems" id="el1"></div>
+        <div class="elems" id="el2"></div>
+        <div class="elems" id="el3"></div>
+        <div class="elems" id="el4"></div>
+        <div class="elems" id="el5"></div>
+        <div class="elems" id="el6"></div>
+        <div class="elems" id="el7"></div>
+        <div class="elems" id="el8"></div>
+        <div class="elems" id="el9"></div>
+        <div class="elems" id="el10"></div>
+    </div>
+    <div id="wordPlace"></div>
+    <div id="hintPlace"></div>
+    <div id="alphabet">
+        <ul id="keyboard">
+          <li class="letter">а</li>
+          <li class="letter">б</li>
+          <li class="letter">в</li>
+          <li class="letter">г</li>
+          <li class="letter">д</li>
+          <li class="letter">е</li>
+          <li class="letter">ё</li>
+          <li class="letter">ж</li>
+          <li class="letter">з</li>
+          <li class="letter">и</li>
+          <li class="letter">й</li>
+          <li class="letter">к</li>
+          <li class="letter">л</li>
+          <li class="letter">м</li>
+          <li class="letter">н</li>
+          <li class="letter">о</li>
+          <li class="letter">п</li>
+          <li class="letter">р</li>
+          <li class="letter">с</li>
+          <li class="letter">т</li>
+          <li class="letter">ц</li>
+          <li class="letter">у</li>
+          <li class="letter">ш</li>
+          <li class="letter">щ</li>
+          <li class="letter">х</li>
+          <li class="letter">ъ</li>
+          <li class="letter">ф</li>
+          <li class="letter">ы</li>
+          <li class="letter">ч</li>
+          <li class="letter">ь</li>
+          <li class="letter">э</li>
+          <li class="letter">ю</li>
+          <li class="letter">я</li>
+        </ul>
+    </div>
+    <label for="tumbler" id="end">Закончить игру</label>
+   
+    <input type="checkbox" name="" id="tumbler">
+    <div id="modalW">
+        <div id="lose">Вы проиграли!</div>
+        <div id="win">Вы победили!</div>
+        <label for="tumbler" id="start">Начать игру</label>
+        <div id="sumOfWins"><span>Побед: </span><span id="cWin"></span></div>
+        <div id="sumOfLoss"><span>Поражений: </span><span id="cLoss"></span></div>
+    </div>
+    <script src="js/script.js"></script>
+</body>
+</html>
