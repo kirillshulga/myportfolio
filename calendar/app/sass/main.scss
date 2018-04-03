@@ -1,0 +1,240 @@
+$main_color: #f4f4f4;
+
+$secondary_color: #cbcbcb;
+
+$shadow_color: #bcbcbc;
+
+$reminder_color: #c1e4ff;
+
+$header_button_color: #006fca;
+
+$header_border_radius: 3px;
+
+$additional_text_color: #5d5c5c;
+
+$indent: 5em;
+
+@mixin lateral_space($width) {
+    padding-left: $width;
+    padding-right: $width;
+}
+
+@mixin pointer {
+    cursor: pointer;
+}
+
+@mixin active_button {
+    position: relative;
+    left: 1px;
+    top: 1px;
+}
+
+@mixin header_button {
+    background: $header_button_color;
+    border: 1px solid #006fca;
+    border-radius: $header_border_radius;
+    color: white;
+    padding: 0.3em 0.7em;
+    text-shadow: 1px 1px 1px #5d5c5c;
+    margin-right: 0.4em;
+    box-shadow: 0px 1px 1px 0px $secondary_color;
+    outline: none;
+	-moz-appearance: none;
+}
+
+@mixin header_input {
+    float: right;
+    width: 15vw;
+    border-radius: $header_border_radius;
+    border: 1px $secondary_color;
+    padding: 0.3em 0.7em;
+    box-shadow: inset 0px 1px 1px 1px $shadow_color;
+    outline: none;
+	-moz-appearance: none;
+}
+
+@mixin nav_button {
+    background: #fff;
+    border: none;
+    box-shadow: inset 0px 0px 2px 1px $secondary_color;
+    border-radius: 4px;
+    outline: none;
+	-moz-appearance: none;
+}
+
+@mixin cal_textarea {
+    resize: none;
+    outline: none;
+	-moz-appearance: none;
+    border: none;
+    width: 100%;
+    height: 75%;
+}
+
+body {
+    margin: 0;
+    box-sizing: border-box;
+}
+
+header {
+    
+    background-color: $main_color;
+    padding-top: 3em;
+    padding-bottom: 1em;
+    box-shadow: 0px 1px 1px 1px $shadow_color;
+    @include lateral_space($indent);
+    
+    button {
+        @include header_button;
+        @include pointer;
+        transition: background 300ms ease 100ms;
+        
+        &:hover {
+            background: $header_button_color - 11;
+        }
+        &:active {
+            @include active_button;
+        }
+    }
+    
+    
+    input {
+        @include header_input;
+        &::-webkit-input-placeholder {color:$secondary_color;}
+        &::-moz-placeholder          {color:$secondary_color;}
+        &:-moz-placeholder           {color:$secondary_color;}
+        &:-ms-input-placeholder      {color:$secondary_color;}
+    }
+    
+    span {
+        float: right;
+        margin-right: 0.5em;
+        padding-top: 0.1em;
+    }
+    
+}
+
+main {
+    @include lateral_space($indent);
+    font-family: sans-serif;
+    
+    .navigation {
+        padding-top: 1em;
+        padding-bottom: 1em;
+        
+        
+        button {
+            @include nav_button;
+            @include pointer;
+            height: 1.4em;
+            width: 1.4em;
+            transition: background 300ms ease 100ms;
+            &:nth-child(n) {
+                margin-right: 0.3em;
+            }
+            &.today-button {
+                    font-size: 0.7em;
+                    color: $additional_text_color;
+                    height: 1.6em;
+                    width: auto;
+            }
+            &:not(.today-button) {
+                padding: 0;
+            }
+            
+            &:hover {
+                background: #fff - 11;
+            }
+            &:active {
+                @include active_button;
+            }
+        }
+        
+        span.nav-date {
+            display: inline-block;
+            width: 9vw;
+            text-align: center;
+            cursor: default;
+        }
+    }
+    .cal-sheet {
+        margin-bottom: 3em;
+        
+        .day-item {
+            border: 1px solid ($main_color - 11);
+            padding: 0.3em 0.5em;
+            box-sizing: border-box;
+            height: 24vh;
+            transition: background 300ms ease 100ms;
+            &:not(:nth-child(7n)) {
+                border-right: none;
+            }
+            
+            &:not(:nth-child(n+29)) {
+                border-bottom: none;
+            }
+            
+            &:hover {
+                background: #fffafa;
+                
+                textarea {
+                    background: #fffafa;
+                }
+            }
+            
+            span {
+                font-size: 0.7em;
+                color: $shadow_color - 33;
+            }
+            
+            textarea {
+                @include cal_textarea;
+                @include pointer;
+                transition: background 300ms ease 100ms;
+            } 
+        }
+        
+        .current-day {
+            background-color: $main_color;
+            
+            span {
+                color: $additional_text_color;
+                font-weight: 600;
+            }
+            
+            textarea {
+                background-color: $main_color;
+            }
+            
+            &:hover {
+                background-color: $main_color - 11;
+                
+                textarea {
+                    background-color: $main_color - 11;
+                }
+            }
+        }
+        
+        .notice {
+            background-color: $reminder_color;
+            transition: background 300ms ease 100ms;
+            textarea {
+                background-color: $reminder_color;
+            }
+            
+            &:hover {
+                background-color: $reminder_color - 11;
+                
+                textarea {
+                    background-color: $reminder_color - 11;
+                }
+            }
+        }
+        
+        .return-to-current-day {
+            box-shadow: inset 0px 0px 2px 2px #fd9292;
+        }
+    }
+}
+
+    

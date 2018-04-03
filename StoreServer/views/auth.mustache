@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Auth</title>
+    <link rel="stylesheet" href="{{#up}}../{{/up}}css/bootstrap/bootstrap.min.css">
+    <link rel="stylesheet" href="{{#up}}../{{/up}}css/bootstrap/bootstrap-grid.min.css">
+    <link rel="stylesheet" href="{{#up}}../{{/up}}css/auth_style.css">
+    <script src="{{#up}}../{{/up}}js/jquery/jquery-3.3.1.js"></script>
+    <script src="{{#up}}../{{/up}}js/bootstrap/bootstrap.min.js"></script>
+    <script src="{{#up}}../{{/up}}js/bootstrap/bootstrap.bundle.min.js"></script>
+    <script src="{{#up}}../{{/up}}js/auth.js"></script>
+    <script src="{{#up}}../{{/up}}js/js.cookie.js"></script>
+</head>
+<body>
+    <div class="modal" tabindex="-1" id="auth">
+      <div class="modal-dialog modal">
+        <div class="modal-content {{#danger}}danger{{/danger}}">
+          <div class="modal-header">
+            <h6 class="modal-title">{{#wrong}}Неверный логин или пароль{{/wrong}} {{^wrong}}Вам необходимо авторизоваться{{/wrong}}</h6>
+          </div>
+          <div class="modal-body">
+           <form action="/auth" method="post" id="authForm">
+            <label for="login">Ваш логин</label>
+            <input type="text" class="form-control" name="login" id="login"><br>
+            <label for="pass">Ваш пароль</label>
+            <input type="password" class="form-control" name="pass" id="pass">
+           </form>
+          </div>
+          <div class="modal-footer">
+           <input type="submit" form="authForm" class="btn btn-primary" value="Авторизоваться">
+<!--            <button type="button" class="btn btn-primary" id="authBtn">Авторизоваться</button>-->
+          </div>
+        </div>
+      </div>
+    </div>  
+</body>
+</html>

@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Заказы</title>
+    <link rel="stylesheet" href="../css/bootstrap/bootstrap.min.css">
+    <link rel="stylesheet" href="../css/bootstrap/bootstrap-grid.min.css">
+    <link rel="stylesheet" href="../css/admin_style.css">
+    <script src="../js/jquery/jquery-3.3.1.js"></script>
+    <script src="../js/bootstrap/bootstrap.min.js"></script>
+    <script src="../js/bootstrap/bootstrap.bundle.min.js"></script>
+    <script defer src="https://use.fontawesome.com/releases/v5.0.6/js/all.js"></script>
+    <script src="../js/orders.js"></script>
+</head>
+<body>
+    <ul class="nav nav-pills nav-fill">
+        <li class="nav-item">
+            <a class="nav-link" href="/admin">Товары</a>
+        </li>
+        <li class="nav-item">
+            <a class="nav-link active" href="#">Заказы</a>
+        </li>
+        <li class="nav-item">
+            <a class="nav-link" href="/logout">Выход</a>
+        </li>
+    </ul>
+    
+    <div id="list" class="container">
+        <div class="row list-group-item">
+            <div class="col-2">Статус</div>
+            <div class="col-2">Имя</div>
+            <div class="col-2">Телефон</div>
+            <div class="col-2">Сумма</div>
+            <div class="col-2">Просмотр</div>
+            <div class="col-2">Del</div> 
+        </div>
+        {{#order}}
+            <div class="row list-group-item {{status}}" data-order-id="{{_id}}">
+                <div class="col-2 {{status}}-order">{{status}}</div>
+                <div class="col-2">{{name}}</div>
+                <div class="col-2">{{phone}}</div>
+                <div class="col-2">{{totalPrice}}</div>
+                <div class="col-2"><button class="btn btn-primary edit">Просмотр</button></div>
+                <div class="col-2"><button class="btn btn-danger del"><i class="far fa-trash-alt"></i></button></div> 
+            </div>
+        {{/order}}
+    </div>
+    
+   <div class="modal" tabindex="-1" id="delModal">
+      <div class="modal-dialog">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h6 class="modal-title">Вы действительно хотите удалить этот заказ?</h6>
+            <button type="button" class="close esc" data-dismiss="modal" aria-label="Close">
+              <span aria-hidden="true">&times;</span>
+            </button>
+          </div>
+          <div class="modal-body">
+            <h4></h4>
+          </div>
+          <div class="modal-footer">
+            <button type="button" class="btn btn-primary" id="remove">Удалить</button>
+            <button type="button" class="btn btn-secondary esc" data-dismiss="modal">Отмена</button>
+          </div>
+        </div>
+      </div>
+    </div>

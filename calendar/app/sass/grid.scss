@@ -1,0 +1,59 @@
+$col_width: 7.142857%;
+
+@mixin column($width) {
+    width: $width;
+    float: left;
+}
+
+
+.col-1{
+	@include column($col_width);
+}
+.col-2{
+    @include column($col_width * 2);
+}
+.col-3{
+	@include column($col_width * 3);
+}
+.col-4{
+	@include column($col_width * 4);
+}
+.col-5{
+	@include column($col_width * 5);
+}
+.col-6{
+	@include column($col_width * 6);
+}
+.col-7{
+	@include column($col_width * 7);
+}
+.col-8{
+	@include column($col_width * 8);
+}
+.col-9{
+	@include column($col_width * 9);
+}
+.col-10{
+	@include column($col_width * 10);
+}
+.col-11{
+	@include column($col_width * 11);
+}
+.col-12{
+	@include column($col_width * 12);
+}
+.col-13{
+	@include column($col_width * 13);
+}
+.col-14{
+	@include column($col_width * 14);
+}
+
+
+.row::after{
+	 clear: both;
+	 content: "";
+	 display: block;
+	 height: 0;
+	 visibility: hidden;
+}

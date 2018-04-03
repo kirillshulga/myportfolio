@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>BeautyStore</title>
+    <link rel="stylesheet" href="css/bootstrap/bootstrap.min.css">
+    <link rel="stylesheet" href="css/bootstrap/bootstrap-grid.min.css">
+    <link rel="stylesheet" href="css/main_style.css">
+    <script src="js/jquery/jquery-3.3.1.js"></script>
+    <script src="js/bootstrap/bootstrap.min.js"></script>
+    <script src="js/bootstrap/bootstrap.bundle.min.js"></script>
+    <script defer src="https://use.fontawesome.com/releases/v5.0.6/js/all.js"></script>
+    <script src="js/js.cookie.js"></script>
+    <script src="js/index.js"></script>
+</head>
+<body>
+   <div class="my-navbar">
+    <div class="nav-item"><h3><a href="/">BeautyStore</a></h3></div>
+    <div class="nav-item"><h4><a href="#catalog">Каталог</a></h4></div>
+    <div class="nav-item"><h4>Контакты</h4></div>
+    <div class="nav-item cart"><i class="fas fa-shopping-cart fa-2x"></i><h4 id="totalQPlace">x<span id="totalQ">0</span></h4></div>
+   </div>
+   <div class="main-info">
+       <div class="main-info-content">
+            <h5>Lorm ipsum dolor sit amet, consectetur adipisicing elit. Vitae facilis harum distinctio quo, nobis porro ea dicta deleniti! Impedit cum tenetur, aspernatur possimus perferendis mollitia sit ducimus reprehenderit id molestiae. Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quos ratione repellat eos commodi. Eaque nemo cupiditate consequuntur aperiam voluptatibus eius, hic quos dolore, tenetur dolor quisquam architecto error, maxime. Debitis nam sed nesciunt at est eveniet harum tempore maiores sunt quam veniam, optio ipsa reprehenderit adipisci pariatur. Voluptatem amet repudiandae, facere officia earum nam nihil, beatae culpa inventore aperiam nostrum voluptas non, tempora voluptatibus soluta ex ipsa dicta quam illo est perspiciatis ipsam in similique! Odit labore nam accusamus. Aliquid, placeat quam enim deserunt commodi odit labore ea. Sunt necessitatibus expedita, iure nostrum unde adipisci consequuntur repellendus sapiente vero facilis.</h5>
+       </div>
+   </div>
+   <div class="carousel"></div>
+   <div class="catalog row" id="catalog">
+       {{#item}}
+       <div class="item col-md-3"  data-id="{{_id}}">
+           <div class="item-content">
+                <div class="item-image">
+                    <img src="img/5a82b9424e047418b05618b8.jpg" alt="{{title}}">                    
+                </div>
+                <div class="item-info">
+                    <h5>{{title}}</h5>
+                    <span class="pricePlace">
+                       Цена: <span class="price">{{price}}</span> 
+                    </span>
+                    <span class="quantityPlace">
+                       Количество: <span class="quantity">{{quantity}}</span>
+                    </span>
+                    <p class="description">
+                        {{description}}
+                    </p>
+                    <div class="item-btn">
+                        <button class="add-btn">В корзину</button>
+                        <button class="minus-btn"> <i class="fas fa-minus"></i> </button>
+                        <input type="text" class="q-ty" disabled>
+                        <button class="plus-btn"> <i class="fas fa-plus"></i> </button>
+                    </div>
+                </div>
+           </div>
+       </div>
+       {{/item}}
+   </div>
+   <div class="footer">
+       <div class="footer-content">
+            <h5>COPYRIGHT © 2018 BEAUTYSTORE. ALL RIGHTS RESERVED</h5>
+       </div>
+   </div>
+   <div class="outer-modal">
+       <div class="close-modal"><i class="fas fa-times fa-3x"></i></div>
+       <div class="inner-modal">
+          <div class="header-order row">
+              <h3 class="col-12">
+                  Для оформления заказа укажите информацию для связи с Вами, а также проверьте товары и их количество
+              </h3>
+          </div>
+           <div class="modal-order-content row">
+               <div class="user-contacts col-6">
+                  <label>
+                      <h5>Ваше имя</h5>
+                      <input type="text" name="name" id="name">
+                  </label>
+                  <label>
+                      <h5>Ваш телефон</h5>
+                      <input type="tel" name="phone" id="phone">
+                  </label>
+                  <label>
+                      <h5>Ваш почтовый ящик</h5>
+                      <input type="email" name="email" id="email">
+                  </label>
+               </div>
+               <div class="order-list col-6">
+                  <h5>Ваш заказ</h5>
+                  <div class="list-inner">
+                    <div class="item-row row list-header">
+                        <div class="title-order col-4">Наименование</div>
+                        <div class="price-order col-2">Цена</div>
+                        <div class="q-order col-2">Кол-во</div>
+                        <div class="tq-order col-4">Стоимость</div>
+                     </div>
+                  </div>
+                  <div class="order-total">
+                      <h5>Итого: <span class="inTotal"></span></h5>
+                  </div>
+               </div>
+           </div>
+           <div class="footer-order row">
+               <button id="sendOrder">Оформить заказ</button>
+           </div>
+       </div>
+   </div>
+</body>
+</html>
