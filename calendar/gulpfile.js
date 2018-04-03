@@ -31,7 +31,12 @@ gulp.task('clean', function() {
    return del.sync('dist'); 
 });
 
-gulp.task('build', ['sass'], function() {
+gulp.task('img', function() {
+    return gulp.src('app/img/**/*')
+        .pipe(gulp.dest('dist/img')); 
+});
+
+gulp.task('build', ['sass', 'img'], function() {
     
     let buildCss = gulp.src('app/css/**/*.css')
     .pipe(gulp.dest('dist/css'));
